@@ -1,0 +1,248 @@
+html, body {
+  scroll-behavior: smooth;
+}
+
+/* =========================================
+   Mobile-first Header + Nav (blur dark)
+   ========================================= */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center; /* centers brand on mobile */
+  padding: 1rem 1.25rem;
+
+  /* dark blur */
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  color: #fff;
+}
+
+/* Optional: prevent hero being hidden behind fixed header */
+.hero {
+  padding-top: 72px; /* adjust if your header height changes */
+}
+
+/* Brand/logo */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-image {
+  max-width: 150px;
+  height: auto;
+  display: block;
+}
+
+/* Hamburger button (mobile visible) */
+.nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+
+  background: transparent;
+  border: 0;
+  padding: 0.5rem;
+  border-radius: 999px;
+  cursor: pointer;
+
+  color: #fff; /* makes the icon white */
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-toggle:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+/* Hamburger icon lines (white via currentColor) */
+.nav-toggle__icon {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  position: relative;
+  color: currentColor;
+}
+
+.nav-toggle__icon::before,
+.nav-toggle__icon::after,
+.nav-toggle__icon span {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.2s ease, top 0.25s ease;
+}
+
+.nav-toggle__icon::before { top: 6px; }
+.nav-toggle__icon span     { top: 12px; }
+.nav-toggle__icon::after  { top: 18px; }
+
+/* Mobile nav panel (dropdown) */
+.site-nav {
+  position: fixed;
+  top: 72px; /* should match header height-ish */
+  left: 1rem;
+  right: 1rem;
+
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+
+  z-index: 60;
+
+  /* dark blur panel */
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.site-nav.is-open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.site-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-nav__link {
+  display: block;
+  padding: 0.9rem 1rem;
+  text-decoration: none;
+  color: #fff; /* ✅ white nav links */
+}
+
+.site-nav__link:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Backdrop */
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 55;
+}
+
+.nav-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Hamburger -> X */
+.nav-toggle.is-open .nav-toggle__icon::before {
+  top: 12px;
+  transform: rotate(45deg);
+}
+.nav-toggle.is-open .nav-toggle__icon span {
+  opacity: 0;
+}
+.nav-toggle.is-open .nav-toggle__icon::after {
+  top: 12px;
+  transform: rotate(-45deg);
+}
+
+/* =========================================
+   Desktop Navigation
+   ========================================= */
+@media (min-width: 901px) {
+
+  .site-header {
+    justify-content: space-between;
+    padding: 1rem 2rem;
+  }
+
+  /* hide hamburger + backdrop */
+  .nav-toggle,
+  .nav-backdrop {
+    display: none;
+  }
+
+  /* make nav behave normally */
+  .site-nav {
+    position: static;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+
+    border-radius: 0;
+    overflow: visible;
+  }
+
+  /* THIS is the important fix */
+  .site-nav__list {
+    display: flex;
+    flex-direction: row;      /* force horizontal */
+    align-items: center;
+    gap: 1.5rem;
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-nav__list li {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .site-nav__link {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.25rem 0;
+    white-space: nowrap;
+  }
+
+  .site-nav__link:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+}
+
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .site-nav,
+  .nav-backdrop,
+  .nav-toggle__icon::before,
+  .nav-toggle__icon::after,
+  .nav-toggle__icon span {
+    transition: none !important;
+  }
+}

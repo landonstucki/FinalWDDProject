@@ -1,0 +1,19 @@
+{
+  "name": "stuckihomes",
+  "private": true,
+  "scripts": {
+    "start": "concurrently \"npm run sass:watch\" \"npm run serve\"",
+    "sass:watch": "sass --watch src/scss/main.scss:src/css/styles.css --no-source-map",
+    "sass:build": "sass src/scss/main.scss:src/css/styles.css --style=compressed --no-source-map",
+    "clean": "rimraf dist",
+    "copy": "xcopy src dist /E /I /Y",
+    "build": "npm run sass:build && npm run clean && npm run copy",
+    "serve": "live-server src --port=5173 --open=/index.html"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0",
+    "live-server": "^1.2.0",
+    "rimraf": "^6.0.1",
+    "sass": "^1.70.0"
+  }
+}

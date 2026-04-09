@@ -1,0 +1,54 @@
+@use "../globals/variables" as *;
+
+.btn-booking {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, $primary 0%, $accent 100%);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 10px 30px -10px rgba(200, 100, 100, 0.4);
+  transition: all 0.3s ease;
+  text-decoration: none;
+
+  &:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 40px -10px rgba(200, 100, 100, 0.5);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  svg {
+    margin-right: 0.5rem;
+  }
+}
+
+
+
+.service-book-btn{
+  all: unset;
+  background-color: lightgray;
+  margin-top:14px;
+  font-size:12px;
+  font-family: $font-heading;
+  font-weight: 650;
+  width:50%;
+  padding:10px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+
+  &:hover{
+    color: white;
+    background-color: $primary;
+  }
+}
+
+

@@ -1,0 +1,23 @@
+/* Color System */
+$primary: #c8a96a; // warm gold (main brand)
+$primary-light: #e0c792; // lighter gold highlight
+$accent: #1c1f26; // deep charcoal / background contrast
+$background: #12151b; // main dark background
+$foreground: #f5f3ef; // primary text (light)
+$muted: #b8b2aa; // softer text
+$card: #1f232b; // card background
+$border: rgba(255, 255, 255, 0.1);
+
+/* Common */
+$shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.25);
+$shadow-hover: 0 20px 40px -20px rgba(0, 0, 0, 0.4);
+$shadow-strong: 0 25px 70px -30px rgba(0, 0, 0, 0.6);
+
+$radius-sm: 12px;
+$radius-md: 14px;
+$radius-lg: 18px;
+$radius-xl: 24px;
+
+/* Typography */
+$font-heading: "Playfair Display", serif;
+$font-body: "Inter", sans-serif;

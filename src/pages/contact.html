@@ -1,0 +1,87 @@
+<!-- /pages/contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stucki Homes | Contact</title>
+
+  <!-- ONE compiled stylesheet -->
+  <link rel="icon" type="image/x-icon" href="../assets/images/fkaybg.ico">
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+
+<body data-page="contact">
+  <!-- Header Injection - JavaScript -->
+  <header id="site-header"></header>
+
+  <section class="hero hero--contact">
+    <div class="hero-bg" aria-hidden="true"></div>
+
+    <div class="hero-content hero-content--contact">
+      <h1 class="hero-title">Contact</h1>
+      <p class="hero-description hero-description--contact">
+        Questions | Request a Quote<br>
+        Reach out to me (Troy Stucki) via phone or form!<br>(208) 350-8346
+      </p>
+
+      <!-- STATUS MESSAGE (JS fills this in) -->
+      <p class="form-status" id="formStatus" aria-live="polite"></p>
+    </div>
+
+    <!-- CONTACT FORM -->
+    <form class="contact-form" action="./contact.php" method="post" novalidate>
+      <fieldset>
+        <!-- Honeypot (hidden via CSS) -->
+        <input type="text" name="website" autocomplete="off" tabindex="-1" class="hp" aria-hidden="true">
+
+        <label for="name">Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          pattern="^[A-Za-z\s]{2,50}$"
+          placeholder="Your full name"
+        />
+
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+          placeholder="you@example.com"
+        />
+
+        <label for="phone">Phone Number</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          required
+          pattern="^\+?[0-9\s\-().]{7,20}$"
+          placeholder="(555) 123-4567"
+        />
+
+        <label for="message">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+          required
+          minlength="10"
+          placeholder="Write your message here..."
+        ></textarea>
+
+        <button type="submit">Send Message</button>
+      </fieldset>
+    </form>
+  </section>
+
+  <!-- FOOTER Injection - Javascript -->
+  <footer id="site-footer"></footer>
+  <script type="module" src="../js/main.js"></script>
+</body>
+</html>

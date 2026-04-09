@@ -1,0 +1,25 @@
+@use "../globals/variables" as *;
+
+/* ONLY target the new site header nav */
+.site-nav {
+  .site-nav__list {
+    font-family: $font-heading;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-nav__link {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-2px);
+      text-shadow: $primary 1px 0 10px;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+  }
+}

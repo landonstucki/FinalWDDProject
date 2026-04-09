@@ -1,0 +1,27 @@
+@use "../globals/variables" as *;
+
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, $primary, $accent);
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  display: none;
+  z-index: 999;
+  box-shadow: 0 10px 30px -10px rgba(200, 100, 100, 0.5);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+
+  &:hover {
+    transform: translateY(-3px) scale(1.05);
+  }
+
+  &.show {
+    display: block;
+  }
+}

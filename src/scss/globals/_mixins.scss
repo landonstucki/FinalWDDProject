@@ -1,0 +1,5 @@
+@mixin focus-ring($color, $alpha: 0.2) {
+  outline: none;
+  border-color: $color;
+  box-shadow: 0 0 0 3px rgba(184, 137, 168, $alpha);
+}
